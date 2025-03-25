@@ -80,3 +80,5 @@ pygmentsCodefencesGuessSyntax = true
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
+    
+publishDir = "docs"
