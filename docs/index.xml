@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cilas Beltrame</title>
-    <link>http://localhost:1313/</link>
+    <link>http://https://cilasbeltrame.github.io/</link>
     <description>Recent content on Cilas Beltrame</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://https://cilasbeltrame.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About me</title>
-      <link>http://localhost:1313/page/about/</link>
+      <link>http://https://cilasbeltrame.github.io/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/page/about/</guid>
+      <guid>http://https://cilasbeltrame.github.io/page/about/</guid>
       <description>&lt;p&gt;By day, I&amp;rsquo;m a DevOps Engineer, freelancer, and make sure things don’t catch fire (too often). By night, I break things in my homelab. 🚀&lt;/p&gt;&#xA;&lt;p&gt;I’m a DevOps enthusiast who loves digging into Linux, Kubernetes, open source, and all  automation things. This blog is my little corner of the internet where I share what I learn/the wins, failures, and everything in between.&lt;/p&gt;&#xA;&lt;p&gt;Let’s build, break, and learn together! 🚀&lt;/p&gt;</description>
     </item>
   </channel>
