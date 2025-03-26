@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cilas Beltrame</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Cilas Beltrame</description>
+    <title>Stress on Cilas Beltrame</title>
+    <link>http://localhost:1313/tags/stress/</link>
+    <description>Recent content in Stress on Cilas Beltrame</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/stress/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How k8s CPU limits work</title>
       <link>http://localhost:1313/post/2025-03-25-kubernetes-cpu-limits/2025-03-25-kubernetes-cpu-limits/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/2025-03-25-kubernetes-cpu-limits/2025-03-25-kubernetes-cpu-limits/</guid>
       <description>&lt;p&gt;Everyone knows that once a pod hits 100% of memory, it will be killed by the OOM killer. But did you know what happens with CPU?&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say you have a pod limited to 100mCPU. What actually happens under the hood?&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-cpu-limits-in-kubernetes&#34;&gt;Understanding CPU Limits in Kubernetes&lt;/h2&gt;&#xA;&lt;p&gt;As per &lt;a href=&#34;https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/&#34;&gt;official documentation&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;cpu limits are enforced by CPU throttling. When a container approaches its cpu limit, the kernel will restrict access to the CPU corresponding to the container&amp;rsquo;s limit. Thus, a cpu limit is a hard limit the kernel enforces. Containers may not use more CPU than is specified in their cpu limit.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About me</title>
-      <link>http://localhost:1313/page/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/page/about/</guid>
-      <description>&lt;p&gt;By day, I&amp;rsquo;m a DevOps Engineer, freelancer, and make sure things don’t catch fire (too often). By night, I break things in my homelab. 🚀&lt;/p&gt;&#xA;&lt;p&gt;I’m a DevOps enthusiast who loves digging into Linux, Kubernetes, open source, and all  automation things. This blog is my little corner of the internet where I share what I learn/the wins, failures, and everything in between.&lt;/p&gt;&#xA;&lt;p&gt;Let’s build, break, and learn together! 🚀&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
