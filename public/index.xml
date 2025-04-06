@@ -6,8 +6,29 @@
     <description>Recent content on Cilas Beltrame</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Apr 2025 16:33:33 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitOps Best Practices: Balancing Autonomy and Stability</title>
+      <link>http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/</link>
+      <pubDate>Sun, 06 Apr 2025 16:33:33 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/</guid>
+      <description>&lt;p&gt;In modern cloud-native environments, implementing GitOps principles effectively requires finding the right balance between team autonomy and system stability. This article explores key patterns and practices that can be applied across different GitOps tools (like ArgoCD, Flux, or Helm) to achieve this balance while maintaining system integrity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-core-challenge&#34;&gt;The Core Challenge&lt;/h2&gt;&#xA;&lt;p&gt;When implementing GitOps, organizations often face several fundamental challenges:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Security and Stability&lt;/strong&gt;: Critical infrastructure components require careful management and protection&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Team Autonomy&lt;/strong&gt;: Development teams need the ability to make changes without bottlenecks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;System Reliability&lt;/strong&gt;: Core services must remain stable and protected from accidental changes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Operational Efficiency&lt;/strong&gt;: Teams should work independently while maintaining system integrity&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;repository-structure-and-access-control&#34;&gt;Repository Structure and Access Control&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-infrastructure-repository&#34;&gt;1. Infrastructure Repository&lt;/h3&gt;&#xA;&lt;p&gt;This repository contains critical infrastructure components that should be managed by the DevOps/SRE team:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Execute Permissions in Linux</title>
+      <link>http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/</link>
+      <pubDate>Fri, 28 Mar 2025 08:32:30 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/</guid>
+      <description>&lt;h2 id=&#34;the-execute-bit-different-meanings-for-files-and-directories&#34;&gt;The Execute Bit: Different Meanings for Files and Directories&lt;/h2&gt;&#xA;&lt;p&gt;In Linux, the execute permission (x) has different meanings depending on whether it&amp;rsquo;s applied to a file or a directory:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;For files: The execute bit allows the file to be run as a program or script&lt;/li&gt;&#xA;&lt;li&gt;For directories: The execute bit allows you to enter the directory (cd into it) and list its contents&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-danger-of-chmod--r&#34;&gt;The Danger of &lt;code&gt;chmod -R&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Using &lt;code&gt;chmod -R&lt;/code&gt; (recursive mode) to modify execute permissions can be risky because it treats both files and directories the same way. For example:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What really happens when you redirect to /dev/null?</title>
+      <link>http://localhost:1313/post/2025-03-27-device-driver-linux/2025-03-27-device-driver-linux/</link>
+      <pubDate>Thu, 27 Mar 2025 06:54:24 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-03-27-device-driver-linux/2025-03-27-device-driver-linux/</guid>
+      <description>&lt;p&gt;Heve you ever wondered what&amp;rsquo;s going on behind the scenes when you use &lt;code&gt;&amp;gt; /dev/null&lt;/code&gt; to discard output?&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-mystery-of-devnull&#34;&gt;The Mystery of /dev/null&lt;/h2&gt;&#xA;&lt;p&gt;First, let&amp;rsquo;s look at what &lt;code&gt;/dev/null&lt;/code&gt; actually is. If you run &lt;code&gt;ls -l /dev/null&lt;/code&gt;, you&amp;rsquo;ll see something like this:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;crw-rw-rw- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; root root 1, &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; Mar &lt;span class=&#34;m&#34;&gt;26&lt;/span&gt; 18:31 /dev/null&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That &lt;code&gt;c&lt;/code&gt; at the start? It tells us this is a character device - a special type of file that Linux uses to communicate with device drivers. The numbers &lt;code&gt;1, 3&lt;/code&gt; are particularly interesting:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How k8s CPU limits work</title>
       <link>http://localhost:1313/post/2025-03-25-kubernetes-cpu-limits/2025-03-25-kubernetes-cpu-limits/</link>

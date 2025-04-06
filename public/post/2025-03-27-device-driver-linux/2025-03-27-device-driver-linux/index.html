@@ -12,7 +12,9 @@
  
 
 
-  
+      <title>What really happens when you redirect to /dev/null? - </title>
+
+  <meta name="description" content="A deep dive into the Linux device driver that handles /dev/null">
   <meta name="author" content="Cilas Beltrame"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -33,14 +35,65 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/post\/2025-03-27-device-driver-linux\/2025-03-27-device-driver-linux\/",
+          "name": "What really happens when you redirect to dev null?"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Cilas Beltrame"
+  },
+  "headline": "What really happens when you redirect to \/dev\/null?",
+  "description" : "Heve you ever wondered what\u0026rsquo;s going on behind the scenes when you use \u0026gt; \/dev\/null to discard output?\nThe Mystery of \/dev\/null First, let\u0026rsquo;s look at what \/dev\/null actually is. If you run ls -l \/dev\/null, you\u0026rsquo;ll see something like this:\ncrw-rw-rw- 1 root root 1, 3 Mar 26 18:31 \/dev\/null That c at the start? It tells us this is a character device - a special type of file that Linux uses to communicate with device drivers. The numbers 1, 3 are particularly interesting:\n",
+  "inLanguage" : "en",
+  "wordCount":  326 ,
+  "datePublished" : "2025-03-27T06:54:24-03:00",
+  "dateModified" : "2025-03-27T06:54:24-03:00",
+  "image" : "http:\/\/localhost:1313\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "http:\/\/localhost:1313\/post\/2025-03-27-device-driver-linux\/2025-03-27-device-driver-linux\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:1313\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:1313\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Cilas Beltrame" />
+
+<meta property="og:title" content="What really happens when you redirect to /dev/null?" />
+<meta property="og:description" content="A deep dive into the Linux device driver that handles /dev/null">
 <meta property="og:image" content="http://localhost:1313/img/avatar-icon.png" />
-<meta property="og:url" content="http://localhost:1313/" />
+<meta property="og:url" content="http://localhost:1313/post/2025-03-27-device-driver-linux/2025-03-27-device-driver-linux/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Cilas Beltrame" />
 
-  <meta name="twitter:title" content="Cilas Beltrame" />
+  <meta name="twitter:title" content="What really happens when you redirect to /dev/null?" />
+  <meta name="twitter:description" content="A deep dive into the Linux device driver that handles /dev/null">
   <meta name="twitter:image" content="http://localhost:1313/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link href='http://localhost:1313/img/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -178,185 +231,18 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
+            <div class="post-heading">
               
-                <h1>Cilas Beltrame</h1>
+                <h1>What really happens when you redirect to /dev/null?</h1>
               
-              
-                <hr class="small">
               
               
                 
-                  <span class="page-subheading">Today I learned.</span>
+                  <h2 class="post-subheading">A deep dive into the Linux device driver that handles /dev/null</h2>
                 
               
               
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-  </header>
-
-
-    
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-
-        <div class="posts-list">
-          
-          
-            <article class="post-preview">
-    <a href="http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/">
-        <h2 class="post-title">GitOps Best Practices: Balancing Autonomy and Stability</h2>
-        
-        <h3 class="post-subtitle">
-            A guide to finding the right balance between team autonomy and system stability
-        </h3>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on April 6, 2025
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;778&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Cilas Beltrame
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>In modern cloud-native environments, implementing GitOps principles effectively requires finding the right balance between team autonomy and system stability. This article explores key patterns and practices that can be applied across different GitOps tools (like ArgoCD, Flux, or Helm) to achieve this balance while maintaining system integrity.</p>
-<h2 id="the-core-challenge">The Core Challenge</h2>
-<p>When implementing GitOps, organizations often face several fundamental challenges:</p>
-<ol>
-<li><strong>Security and Stability</strong>: Critical infrastructure components require careful management and protection</li>
-<li><strong>Team Autonomy</strong>: Development teams need the ability to make changes without bottlenecks</li>
-<li><strong>System Reliability</strong>: Core services must remain stable and protected from accidental changes</li>
-<li><strong>Operational Efficiency</strong>: Teams should work independently while maintaining system integrity</li>
-</ol>
-<h2 id="repository-structure-and-access-control">Repository Structure and Access Control</h2>
-<h3 id="1-infrastructure-repository">1. Infrastructure Repository</h3>
-<p>This repository contains critical infrastructure components that should be managed by the DevOps/SRE team:</p>
-        <a href="http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="http://localhost:1313/tags/gitops/">gitops</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/kubernetes/">kubernetes</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/devops/">devops</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/">
-        <h2 class="post-title">Understanding Execute Permissions in Linux</h2>
-        
-        <h3 class="post-subtitle">
-            The difference between file and directory execute bits
-        </h3>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 28, 2025
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;185&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Cilas Beltrame
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="the-execute-bit-different-meanings-for-files-and-directories">The Execute Bit: Different Meanings for Files and Directories</h2>
-<p>In Linux, the execute permission (x) has different meanings depending on whether it&rsquo;s applied to a file or a directory:</p>
-<ul>
-<li>For files: The execute bit allows the file to be run as a program or script</li>
-<li>For directories: The execute bit allows you to enter the directory (cd into it) and list its contents</li>
-</ul>
-<h2 id="the-danger-of-chmod--r">The Danger of <code>chmod -R</code></h2>
-<p>Using <code>chmod -R</code> (recursive mode) to modify execute permissions can be risky because it treats both files and directories the same way. For example:</p>
-        <a href="http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="http://localhost:1313/tags/linux/">linux</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/permissions/">permissions</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/chmod/">chmod</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="http://localhost:1313/post/2025-03-27-device-driver-linux/2025-03-27-device-driver-linux/">
-        <h2 class="post-title">What really happens when you redirect to /dev/null?</h2>
-        
-        <h3 class="post-subtitle">
-            A deep dive into the Linux device driver that handles /dev/null
-        </h3>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
+                <span class="post-meta">
   
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on March 27, 2025
@@ -376,104 +262,117 @@
 </span>
 
 
-    </p>
-    <div class="post-entry">
-        
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
         <p>Heve you ever wondered what&rsquo;s going on behind the scenes when you use <code>&gt; /dev/null</code> to discard output?</p>
 <h2 id="the-mystery-of-devnull">The Mystery of /dev/null</h2>
 <p>First, let&rsquo;s look at what <code>/dev/null</code> actually is. If you run <code>ls -l /dev/null</code>, you&rsquo;ll see something like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">crw-rw-rw- <span class="m">1</span> root root 1, <span class="m">3</span> Mar <span class="m">26</span> 18:31 /dev/null
 </span></span></code></pre></div><p>That <code>c</code> at the start? It tells us this is a character device - a special type of file that Linux uses to communicate with device drivers. The numbers <code>1, 3</code> are particularly interesting:</p>
-        <a href="http://localhost:1313/post/2025-03-27-device-driver-linux/2025-03-27-device-driver-linux/" class="post-read-more">[Read More]</a>
+<ul>
+<li><code>1</code> is the major number (identifies the driver)</li>
+<li><code>3</code> is the minor number (identifies the specific device)</li>
+</ul>
+<h2 id="finding-the-driver">Finding the Driver</h2>
+<p>So, which driver handles our <code>/dev/null</code>? Let&rsquo;s check <code>/proc/devices</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grep <span class="s2">&#34; 1 &#34;</span> /proc/devices
+</span></span><span class="line"><span class="cl">  <span class="m">1</span> mem
+</span></span></code></pre></div><p>You&rsquo;ll see: <code>1 mem</code></p>
+<p>The <code>mem</code> driver (major number 1) is responsible for handling <code>/dev/null</code>, along with other special devices like <code>/dev/zero</code> and <code>/dev/mem</code>. This driver lives in the Linux kernel source at <code>drivers/char/mem.c</code>.</p>
+<h2 id="the-drivers-secret-sauce">The Driver&rsquo;s Secret Sauce</h2>
+<p><a href="https://github.com/torvalds/linux/blob/master/drivers/char/mem.c">Inside the kernel</a>, the <code>mem</code> driver defines how it handles operations through a structure called <code>file_operations</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">file_operations</span> <span class="n">__maybe_unused</span> <span class="n">mem_fops</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">llseek</span>		<span class="o">=</span> <span class="n">memory_lseek</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">read</span>		<span class="o">=</span> <span class="n">read_mem</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">write</span>		<span class="o">=</span> <span class="n">write_mem</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">mmap</span>		<span class="o">=</span> <span class="n">mmap_mem</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">open</span>		<span class="o">=</span> <span class="n">open_mem</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#ifndef CONFIG_MMU
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="p">.</span><span class="n">get_unmapped_area</span> <span class="o">=</span> <span class="n">get_unmapped_area_mem</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">mmap_capabilities</span> <span class="o">=</span> <span class="n">memory_mmap_capabilities</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="p">.</span><span class="n">fop_flags</span>	<span class="o">=</span> <span class="n">FOP_UNSIGNED_OFFSET</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>This is like a menu of operations the driver can perform. When you write to <code>/dev/null</code>, the kernel calls the <code>write_mem</code> function, which&hellip; well, does nothing! It&rsquo;s designed to discard any data written to it.</p>
+<h2 id="the-device-tree">The Device Tree</h2>
+<p>In modern Linux systems, you can also find <code>/dev/null</code> in the sysfs filesystem:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -l /sys/dev/char/1:3
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Mar <span class="m">27</span> 09:40 /sys/dev/char/1:3 -&gt; ../../devices/virtual/mem/null
+</span></span></code></pre></div><p>You&rsquo;ll see it&rsquo;s actually a symbolic link to <code>../../devices/virtual/mem/null</code>, showing us that it&rsquo;s a virtual device handled by the memory driver.</p>
+<h2 id="why-should-you-care">Why Should You Care?</h2>
+<p>You&rsquo;re actually using a sophisticated piece of kernel infrastructure designed specifically for discarding data efficiently. It&rsquo;s like having a digital black hole in your system!</p>
+
+
         
-    </div>
 
-    
+        
 
-</article>
+        
           
-            <article class="post-preview">
-    <a href="http://localhost:1313/post/2025-03-25-kubernetes-cpu-limits/2025-03-25-kubernetes-cpu-limits/">
-        <h2 class="post-title">How k8s CPU limits work</h2>
-        
-        <h3 class="post-subtitle">
-            What happens when a pod hits 100% CPU?
-        </h3>
-        
-        
-        
-    </a>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 25, 2025
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;487&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Cilas Beltrame
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>Everyone knows that once a pod hits 100% of memory, it will be killed by the OOM killer. But did you know what happens with CPU?</p>
-<p>Let&rsquo;s say you have a pod limited to 100mCPU. What actually happens under the hood?</p>
-<h2 id="understanding-cpu-limits-in-kubernetes">Understanding CPU Limits in Kubernetes</h2>
-<p>As per <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">official documentation</a>:</p>
-<blockquote>
-<p>cpu limits are enforced by CPU throttling. When a container approaches its cpu limit, the kernel will restrict access to the CPU corresponding to the container&rsquo;s limit. Thus, a cpu limit is a hard limit the kernel enforces. Containers may not use more CPU than is specified in their cpu limit.</p>
-        <a href="http://localhost:1313/post/2025-03-25-kubernetes-cpu-limits/2025-03-25-kubernetes-cpu-limits/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="http://localhost:1313/tags/kubernetes/">kubernetes</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/cpu/">cpu</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/stress/">stress</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/linux/">linux</a>&nbsp;
-         
-    </div>
-    
-
-</article>
           
-        </div>
-
         
-      </div>
-    </div>
-  </div>
+      </article>
 
       
-    <div class="page-meta">
-  
-  
-  
+        <div class="comments-section">
+          <script src="https://giscus.app/client.js"
+                  data-repo="cilasbeltrame/cilasbeltrame.github.io"
+                  data-repo-id="R_kgDOOOby_Q"
+                  data-category-id="DIC_kwDOOOby_c4CocWu"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="preferred_color_scheme"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:1313/post/2025-03-25-kubernetes-cpu-limits/2025-03-25-kubernetes-cpu-limits/" data-toggle="tooltip" data-placement="top" title="How k8s CPU limits work">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:1313/post/2025-04-06-argo-cd-segregration/2025-04-06-argo-cd-segregration/" data-toggle="tooltip" data-placement="top" title="GitOps Best Practices: Balancing Autonomy and Stability">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+      
+      
+      
+      
+        
+      
+
+    </div>
+  </div>
 </div>
 
-
-  <footer>
+      <footer>
   <div class="container">
     
     <div class="row">

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on Cilas Beltrame</title>
+    <link>http://localhost:1313/tags/devops/</link>
+    <description>Recent content in Devops on Cilas Beltrame</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 06 Apr 2025 16:33:33 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitOps Best Practices: Balancing Autonomy and Stability</title>
+      <link>http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/</link>
+      <pubDate>Sun, 06 Apr 2025 16:33:33 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/</guid>
+      <description>&lt;p&gt;In modern cloud-native environments, implementing GitOps principles effectively requires finding the right balance between team autonomy and system stability. This article explores key patterns and practices that can be applied across different GitOps tools (like ArgoCD, Flux, or Helm) to achieve this balance while maintaining system integrity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-core-challenge&#34;&gt;The Core Challenge&lt;/h2&gt;&#xA;&lt;p&gt;When implementing GitOps, organizations often face several fundamental challenges:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Security and Stability&lt;/strong&gt;: Critical infrastructure components require careful management and protection&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Team Autonomy&lt;/strong&gt;: Development teams need the ability to make changes without bottlenecks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;System Reliability&lt;/strong&gt;: Core services must remain stable and protected from accidental changes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Operational Efficiency&lt;/strong&gt;: Teams should work independently while maintaining system integrity&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;repository-structure-and-access-control&#34;&gt;Repository Structure and Access Control&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-infrastructure-repository&#34;&gt;1. Infrastructure Repository&lt;/h3&gt;&#xA;&lt;p&gt;This repository contains critical infrastructure components that should be managed by the DevOps/SRE team:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
