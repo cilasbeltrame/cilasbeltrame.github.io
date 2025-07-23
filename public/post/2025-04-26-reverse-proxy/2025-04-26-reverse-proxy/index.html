@@ -12,8 +12,9 @@
  
 
 
-      <title>Chmod - </title>
+      <title>The Host header: Details you should know when proxying requests - </title>
 
+  <meta name="description" content="Understanding and handling the Host header in reverse proxies">
   <meta name="author" content="Cilas Beltrame"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -34,14 +35,65 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/post\/2025-04-26-reverse-proxy\/2025-04-26-reverse-proxy\/",
+          "name": "The host header details you should know when proxying requests"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Cilas Beltrame"
+  },
+  "headline": "The Host header: Details you should know when proxying requests",
+  "description" : "When proxying requests, it\u0026rsquo;s crucial to understand the role of the Host header. This header specifies the target server for a request and can be altered by users to access different resources.\nThe Host Header The Host header in a request indicates the intended server. For example:\nHost: example.com GET \/v1\/users The Host Header in Reverse Proxies In reverse proxies, the Host header determines the target server. If absent, the proxy uses the original Host header. When redirecting to a different host, ensure the Host header is updated accordingly.\n",
+  "inLanguage" : "en",
+  "wordCount":  171 ,
+  "datePublished" : "2025-04-26T06:26:39-03:00",
+  "dateModified" : "2025-04-26T06:26:39-03:00",
+  "image" : "http:\/\/localhost:1313\/img\/avatar-icon.png",
+  "keywords" : [ "reverse-proxy, host-header, http, networking" ],
+  "mainEntityOfPage" : "http:\/\/localhost:1313\/post\/2025-04-26-reverse-proxy\/2025-04-26-reverse-proxy\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:1313\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:1313\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Chmod" />
+
+<meta property="og:title" content="The Host header: Details you should know when proxying requests" />
+<meta property="og:description" content="Understanding and handling the Host header in reverse proxies">
 <meta property="og:image" content="http://localhost:1313/img/avatar-icon.png" />
-<meta property="og:url" content="http://localhost:1313/tags/chmod/" />
+<meta property="og:url" content="http://localhost:1313/post/2025-04-26-reverse-proxy/2025-04-26-reverse-proxy/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Cilas Beltrame" />
 
-  <meta name="twitter:title" content="Chmod" />
+  <meta name="twitter:title" content="The Host header: Details you should know when proxying requests" />
+  <meta name="twitter:description" content="Understanding and handling the Host header in reverse proxies">
   <meta name="twitter:image" content="http://localhost:1313/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link href='http://localhost:1313/img/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -179,14 +231,37 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="tags-heading">
+            <div class="post-heading">
               
-                <h1>Chmod</h1>
-              
-              
-                <hr class="small">
+                <h1>The Host header: Details you should know when proxying requests</h1>
               
               
+              
+                
+                  <h2 class="post-subheading">Understanding and handling the Host header in reverse proxies</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 26, 2025
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;171&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Cilas Beltrame
+    
+  
+  
+</span>
+
+
               
             </div>
           </div>
@@ -198,82 +273,96 @@
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>When proxying requests, it&rsquo;s crucial to understand the role of the Host header. This header specifies the target server for a request and can be altered by users to access different resources.</p>
+<h2 id="the-host-header">The Host Header</h2>
+<p>The Host header in a request indicates the intended server. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host: example.com
+</span></span><span class="line"><span class="cl">GET /v1/users
+</span></span></code></pre></div><h2 id="the-host-header-in-reverse-proxies">The Host Header in Reverse Proxies</h2>
+<p>In reverse proxies, the Host header determines the target server. If absent, the proxy uses the original Host header. When redirecting to a different host, ensure the Host header is updated accordingly.</p>
+<p>Example:</p>
+<p>Redirecting from <code>example.com/v1/users</code> to <code>api.test.com/v2/users</code> requires changing the Host header to <code>api.test.com</code>. Failing to update it results in a 404 error, as the resource isn&rsquo;t found on <code>example.com</code>.</p>
+<h2 id="managing-the-host-header-in-reverse-proxies">Managing the Host Header in Reverse Proxies</h2>
+<p>By default, the Host header isn&rsquo;t changed. You must explicitly update it when redirecting to a different host.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Understanding the Host header&rsquo;s function is essential when proxying requests, as it directs the request to the correct server and can be manipulated to access various resources.</p>
+
+
         
-        <div class="posts-list">
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:1313/tags/reverse-proxy/">reverse-proxy</a>&nbsp;
+            
+              
+              <a href="http://localhost:1313/tags/host-header/">host-header</a>&nbsp;
+            
+              
+              <a href="http://localhost:1313/tags/http/">http</a>&nbsp;
+            
+              
+              <a href="http://localhost:1313/tags/networking/">networking</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
           
-            <article class="post-preview">
-    <a href="http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/">
-        <h2 class="post-title">Understanding Execute Permissions in Linux</h2>
-        
-        <h3 class="post-subtitle">
-            The difference between file and directory execute bits
-        </h3>
-        
-        
-        
-    </a>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 28, 2025
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;185&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Cilas Beltrame
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="the-execute-bit-different-meanings-for-files-and-directories">The Execute Bit: Different Meanings for Files and Directories</h2>
-<p>In Linux, the execute permission (x) has different meanings depending on whether it&rsquo;s applied to a file or a directory:</p>
-<ul>
-<li>For files: The execute bit allows the file to be run as a program or script</li>
-<li>For directories: The execute bit allows you to enter the directory (cd into it) and list its contents</li>
-</ul>
-<h2 id="the-danger-of-chmod--r">The Danger of <code>chmod -R</code></h2>
-<p>Using <code>chmod -R</code> (recursive mode) to modify execute permissions can be risky because it treats both files and directories the same way. For example:</p>
-        <a href="http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="http://localhost:1313/tags/linux/">linux</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/permissions/">permissions</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/chmod/">chmod</a>&nbsp;
-         
-    </div>
-    
-
-</article>
           
+        
+      </article>
+
+      
+        <div class="comments-section">
+          <script src="https://giscus.app/client.js"
+                  data-repo="cilasbeltrame/cilasbeltrame.github.io"
+                  data-repo-id="R_kgDOOOby_Q"
+                  data-category-id="DIC_kwDOOOby_c4CocWu"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="preferred_color_scheme"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async>
+          </script>
         </div>
+
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/" data-toggle="tooltip" data-placement="top" title="GitOps Best Practices: Balancing Autonomy and Stability">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/" data-toggle="tooltip" data-placement="top" title="2025 07 23 Terraform Provider Versioning">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+      
+      
+      
+      
         
-      </div>
+      
+
     </div>
   </div>
+</div>
 
       <footer>
   <div class="container">

@@ -1,0 +1,607 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Terraform Provider Versioning - </title>
+
+  <meta name="description" content="When to pin at composition and when to pin at base/root modules">
+  <meta name="author" content="Cilas Beltrame"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Cilas Beltrame",
+    
+    "url": "http:\/\/localhost:1313\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:1313\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/post\/2025-07-23-terraform-provider-versioning\/2025-07-23-terraform-provider-versioning\/",
+          "name": "Terraform provider versioning"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Cilas Beltrame"
+  },
+  "headline": "Terraform Provider Versioning",
+  "description" : "Introduction Provider versioning in Terraform is a critical aspect of infrastructure management that often gets overlooked until something breaks. The question isn\u0026rsquo;t whether to pin provider versions, but where and how to pin them effectively. This article explores the two main approaches: pinning at the composition level versus pinning at base\/root modules, and provides guidance on when to use each strategy.\nUnderstanding provider versioning strategies Base\/root module pinning In this approach, you specify provider version constraints directly in your base modules or root configurations:\n",
+  "inLanguage" : "en",
+  "wordCount":  645 ,
+  "datePublished" : "2025-07-23T09:37:35-03:00",
+  "dateModified" : "2025-07-23T09:37:35-03:00",
+  "image" : "http:\/\/localhost:1313\/img\/avatar-icon.png",
+  "keywords" : [ "terraform, devops" ],
+  "mainEntityOfPage" : "http:\/\/localhost:1313\/post\/2025-07-23-terraform-provider-versioning\/2025-07-23-terraform-provider-versioning\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:1313\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:1313\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Terraform Provider Versioning" />
+<meta property="og:description" content="When to pin at composition and when to pin at base/root modules">
+<meta property="og:image" content="http://localhost:1313/img/avatar-icon.png" />
+<meta property="og:url" content="http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cilas Beltrame" />
+
+  <meta name="twitter:title" content="Terraform Provider Versioning" />
+  <meta name="twitter:description" content="When to pin at composition and when to pin at base/root modules">
+  <meta name="twitter:image" content="http://localhost:1313/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:1313/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.145.0">
+  <link rel="alternate" href="http://localhost:1313/index.xml" type="application/rss+xml" title="Cilas Beltrame"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:1313/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:1313/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313/">Cilas Beltrame</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Cilas Beltrame" href="http://localhost:1313/">
+            <img class="avatar-img" src="http://localhost:1313/img/avatar-icon.png" alt="Cilas Beltrame" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Terraform Provider Versioning</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">When to pin at composition and when to pin at base/root modules</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on July 23, 2025
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;645&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Cilas Beltrame
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="introduction">Introduction</h2>
+<p>Provider versioning in Terraform is a critical aspect of infrastructure management that often gets overlooked until something breaks. The question isn&rsquo;t whether to pin provider versions, but <strong>where</strong> and <strong>how</strong> to pin them effectively. This article explores the two main approaches: pinning at the composition level versus pinning at base/root modules, and provides guidance on when to use each strategy.</p>
+<h2 id="understanding-provider-versioning-strategies">Understanding provider versioning strategies</h2>
+<h3 id="baseroot-module-pinning">Base/root module pinning</h3>
+<p>In this approach, you specify provider version constraints directly in your base modules or root configurations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># modules/ec2-instance/versions.tf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span> <span class="s2">&#34;~&gt; 6.0&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="composition-level-pinning">Composition-level pinning</h3>
+<p>Here, you define provider versions in your composition files (the files that call your modules):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># environments/production/main.tf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;</span><span class="o">=</span> <span class="m">5</span><span class="p">.</span><span class="m">31</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span><span class="c1">  # Exact version pinning
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">module</span> <span class="s2">&#34;web_servers&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  source</span> <span class="o">=</span> <span class="s2">&#34;../../modules/ec2-instance&#34;</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">  # Module doesn&#39;t specify provider version
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>}
+</span></span></code></pre></div><h2 id="when-to-use-each-approach">When to use each approach</h2>
+<h3 id="use-baseroot-module-pinning-when">Use base/root module pinning when:</h3>
+<p><strong>1. Building reusable modules</strong></p>
+<ul>
+<li>Your modules will be used across different projects or teams</li>
+<li>You need to ensure compatibility with specific provider features</li>
+<li>The module has dependencies on particular provider capabilities</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># modules/kubernetes-cluster/versions.tf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;&gt;</span><span class="o">=</span> <span class="m">5</span><span class="p">.</span><span class="m">0</span><span class="p">,</span> <span class="err">&lt;</span> <span class="m">6</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span><span class="c1">  # Allows flexibility while ensuring compatibility
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    }
+</span></span><span class="line"><span class="cl"><span class="n">    kubernetes</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/kubernetes&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span> <span class="s2">&#34;~&gt; 2.20&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>2. Protecting against breaking changes</strong></p>
+<ul>
+<li>The module uses provider features that frequently change</li>
+<li>You&rsquo;ve experienced issues with provider updates in the past</li>
+<li>The module is complex and testing with new provider versions is time-consuming</li>
+</ul>
+<h3 id="use-composition-level-pinning-when">Use composition-level pinning when:</h3>
+<p><strong>1. Managing environment consistency</strong></p>
+<ul>
+<li>You want identical provider versions across all environments</li>
+<li>You&rsquo;re following a controlled update process</li>
+<li>You need to coordinate provider updates with application deployments</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># environments/production/versions.tf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;</span><span class="o">=</span> <span class="m">5</span><span class="p">.</span><span class="m">31</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl"><span class="n">    datadog</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;DataDog/datadog&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;</span><span class="o">=</span> <span class="m">3</span><span class="p">.</span><span class="m">32</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>2. Centralized version management</strong></p>
+<ul>
+<li>You want a single place to manage all provider versions</li>
+<li>You&rsquo;re implementing organization-wide standards</li>
+<li>You need to track and audit provider version usage</li>
+</ul>
+<h2 id="best-practices">Best practices</h2>
+<h3 id="1-use-semantic-versioning-constraints-wisely">1. Use semantic versioning constraints wisely</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># Good: Allows patch updates but prevents breaking changes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span> <span class="s2">&#34;~&gt; 5.31&#34;</span><span class="c1">  # Allows 5.31.x but not 5.32.x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Avoid: Too restrictive for modules
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;</span><span class="o">=</span> <span class="m">5</span><span class="p">.</span><span class="m">31</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span><span class="c1">  # Only use exact pinning in compositions
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="2-implement-a-hybrid-approach">2. Implement a hybrid approach</h3>
+<p>Combine both strategies for maximum flexibility and control:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># Module defines minimum requirements
+</span></span></span><span class="line"><span class="cl"><span class="c1"># modules/database/versions.tf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;&gt;</span><span class="o">=</span> <span class="m">5</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Composition enforces exact versions
+</span></span></span><span class="line"><span class="cl"><span class="c1"># environments/production/versions.tf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;</span><span class="o">=</span> <span class="m">5</span><span class="p">.</span><span class="m">31</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="3-document-version-dependencies">3. Document version dependencies</h3>
+<p>Always document why specific versions are required:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">      # Version 5.20+ required for vpc_endpoint_route_table_association
+</span></span></span><span class="line"><span class="cl"><span class="c1">      # Version &lt; 6.0 to avoid breaking changes in EKS module
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">      version</span> <span class="o">=</span> <span class="s2">&#34;~&gt; 5.20, &lt; 6.0&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="4-establish-an-update-process">4. Establish an update process</h3>
+<p>Create a systematic approach to provider updates:</p>
+<ol>
+<li><strong>Development Environment</strong>: Test with latest provider versions</li>
+<li><strong>Staging Environment</strong>: Use specific versions that passed dev testing</li>
+<li><strong>Production Environment</strong>: Use exact versions proven in staging</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># dev/versions.tf - Allow latest within major version
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span> <span class="s2">&#34;~&gt; 5.0&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># staging/versions.tf - Pin to tested version
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;</span><span class="o">=</span> <span class="m">5</span><span class="p">.</span><span class="m">31</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># production/versions.tf - Same as staging after validation
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    aws</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;hashicorp/aws&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span><span class="n"> &#34;</span><span class="o">=</span> <span class="m">5</span><span class="p">.</span><span class="m">31</span><span class="p">.</span><span class="m">0</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:1313/tags/terraform/">terraform</a>&nbsp;
+            
+              
+              <a href="http://localhost:1313/tags/devops/">devops</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/">GitOps Best Practices: Balancing Autonomy and Stability</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <div class="comments-section">
+          <script src="https://giscus.app/client.js"
+                  data-repo="cilasbeltrame/cilasbeltrame.github.io"
+                  data-repo-id="R_kgDOOOby_Q"
+                  data-category-id="DIC_kwDOOOby_c4CocWu"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="preferred_color_scheme"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:1313/post/2025-04-26-reverse-proxy/2025-04-26-reverse-proxy/" data-toggle="tooltip" data-placement="top" title="The Host header: Details you should know when proxying requests">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+      
+      
+      
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="https://github.com/cilasbeltrame" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://www.linkedin.com/in/cilas-beltrame-4b99678b" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://cilasbeltrame.github.io">Cilas Beltrame</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2025
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:1313/">Cilas Beltrame</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.145.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:1313/js/main.js"></script>
+<script src="http://localhost:1313/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:1313/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

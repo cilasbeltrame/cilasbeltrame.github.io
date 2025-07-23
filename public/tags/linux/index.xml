@@ -6,8 +6,15 @@
     <description>Recent content in Linux on Cilas Beltrame</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Mar 2025 08:32:30 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Execute Permissions in Linux</title>
+      <link>http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/</link>
+      <pubDate>Fri, 28 Mar 2025 08:32:30 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/</guid>
+      <description>&lt;h2 id=&#34;the-execute-bit-different-meanings-for-files-and-directories&#34;&gt;The Execute Bit: Different Meanings for Files and Directories&lt;/h2&gt;&#xA;&lt;p&gt;In Linux, the execute permission (x) has different meanings depending on whether it&amp;rsquo;s applied to a file or a directory:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;For files: The execute bit allows the file to be run as a program or script&lt;/li&gt;&#xA;&lt;li&gt;For directories: The execute bit allows you to enter the directory (cd into it) and list its contents&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-danger-of-chmod--r&#34;&gt;The Danger of &lt;code&gt;chmod -R&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Using &lt;code&gt;chmod -R&lt;/code&gt; (recursive mode) to modify execute permissions can be risky because it treats both files and directories the same way. For example:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How k8s CPU limits work</title>
       <link>http://localhost:1313/post/2025-03-25-kubernetes-cpu-limits/2025-03-25-kubernetes-cpu-limits/</link>

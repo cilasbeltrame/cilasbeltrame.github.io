@@ -206,10 +206,10 @@
           
             <article class="post-preview">
     <a href="http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/">
-        <h2 class="post-title">2025 03 29 Execute Dir permissions in Linux</h2>
+        <h2 class="post-title">Understanding Execute Permissions in Linux</h2>
         
         <h3 class="post-subtitle">
-            Beware of chmod -R when adjusting execute bits
+            The difference between file and directory execute bits
         </h3>
         
         
@@ -223,10 +223,10 @@
   <i class="fas fa-calendar"></i>&nbsp;Posted on March 28, 2025
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;328&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;185&nbsp;words
   
   
     
@@ -240,12 +240,14 @@
     </p>
     <div class="post-entry">
         
-        <h2 id="beware-of-chmod--r-when-adjusting-execute-bits">Beware of chmod -R When Adjusting Execute Bits</h2>
-<p>When adjusting execute permissions, using <code>chmod -R</code> can be risky. This command does not differentiate between files and directories, which can lead to unintended consequences. The execute bit has different meanings for files and directories, and using <code>chmod -R a-x</code> might not achieve the desired outcome. Instead, use the <code>find</code> command to selectively modify permissions for regular files only:
-the execute bit has a different interpretation on a directory than it does on a flat
-file. Therefore, chmod -R a-x probably won’t do what you intend. Use find to select
-only the regular files:
-$ find mydir -type f -exec chmod a-x {} &lsquo;;&rsquo;</p>
+        <h2 id="the-execute-bit-different-meanings-for-files-and-directories">The Execute Bit: Different Meanings for Files and Directories</h2>
+<p>In Linux, the execute permission (x) has different meanings depending on whether it&rsquo;s applied to a file or a directory:</p>
+<ul>
+<li>For files: The execute bit allows the file to be run as a program or script</li>
+<li>For directories: The execute bit allows you to enter the directory (cd into it) and list its contents</li>
+</ul>
+<h2 id="the-danger-of-chmod--r">The Danger of <code>chmod -R</code></h2>
+<p>Using <code>chmod -R</code> (recursive mode) to modify execute permissions can be risky because it treats both files and directories the same way. For example:</p>
         <a href="http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -257,13 +259,10 @@ $ find mydir -type f -exec chmod a-x {} &lsquo;;&rsquo;</p>
        <a href="http://localhost:1313/tags/linux/">linux</a>&nbsp;
         
        
-       <a href="http://localhost:1313/tags/chmod/">chmod</a>&nbsp;
-        
-       
-       <a href="http://localhost:1313/tags/execute/">execute</a>&nbsp;
-        
-       
        <a href="http://localhost:1313/tags/permissions/">permissions</a>&nbsp;
+        
+       
+       <a href="http://localhost:1313/tags/chmod/">chmod</a>&nbsp;
          
     </div>
     

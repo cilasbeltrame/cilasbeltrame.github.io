@@ -6,8 +6,22 @@
     <description>Recent content on Cilas Beltrame</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 06 Apr 2025 16:33:33 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jul 2025 09:37:35 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform Provider Versioning</title>
+      <link>http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/</link>
+      <pubDate>Wed, 23 Jul 2025 09:37:35 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Provider versioning in Terraform is a critical aspect of infrastructure management that often gets overlooked until something breaks. The question isn&amp;rsquo;t whether to pin provider versions, but &lt;strong&gt;where&lt;/strong&gt; and &lt;strong&gt;how&lt;/strong&gt; to pin them effectively. This article explores the two main approaches: pinning at the composition level versus pinning at base/root modules, and provides guidance on when to use each strategy.&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-provider-versioning-strategies&#34;&gt;Understanding provider versioning strategies&lt;/h2&gt;&#xA;&lt;h3 id=&#34;baseroot-module-pinning&#34;&gt;Base/root module pinning&lt;/h3&gt;&#xA;&lt;p&gt;In this approach, you specify provider version constraints directly in your base modules or root configurations:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Host header: Details you should know when proxying requests</title>
+      <link>http://localhost:1313/post/2025-04-26-reverse-proxy/2025-04-26-reverse-proxy/</link>
+      <pubDate>Sat, 26 Apr 2025 06:26:39 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-04-26-reverse-proxy/2025-04-26-reverse-proxy/</guid>
+      <description>&lt;p&gt;When proxying requests, it&amp;rsquo;s crucial to understand the role of the Host header. This header specifies the target server for a request and can be altered by users to access different resources.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-host-header&#34;&gt;The Host Header&lt;/h2&gt;&#xA;&lt;p&gt;The Host header in a request indicates the intended server. For example:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host: example.com&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GET /v1/users&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-host-header-in-reverse-proxies&#34;&gt;The Host Header in Reverse Proxies&lt;/h2&gt;&#xA;&lt;p&gt;In reverse proxies, the Host header determines the target server. If absent, the proxy uses the original Host header. When redirecting to a different host, ensure the Host header is updated accordingly.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>GitOps Best Practices: Balancing Autonomy and Stability</title>
       <link>http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/</link>

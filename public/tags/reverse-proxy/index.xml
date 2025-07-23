@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reverse-Proxy on Cilas Beltrame</title>
+    <link>http://localhost:1313/tags/reverse-proxy/</link>
+    <description>Recent content in Reverse-Proxy on Cilas Beltrame</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 26 Apr 2025 06:26:39 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/reverse-proxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Host header: Details you should know when proxying requests</title>
+      <link>http://localhost:1313/post/2025-04-26-reverse-proxy/2025-04-26-reverse-proxy/</link>
+      <pubDate>Sat, 26 Apr 2025 06:26:39 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-04-26-reverse-proxy/2025-04-26-reverse-proxy/</guid>
+      <description>&lt;p&gt;When proxying requests, it&amp;rsquo;s crucial to understand the role of the Host header. This header specifies the target server for a request and can be altered by users to access different resources.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-host-header&#34;&gt;The Host Header&lt;/h2&gt;&#xA;&lt;p&gt;The Host header in a request indicates the intended server. For example:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host: example.com&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GET /v1/users&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-host-header-in-reverse-proxies&#34;&gt;The Host Header in Reverse Proxies&lt;/h2&gt;&#xA;&lt;p&gt;In reverse proxies, the Host header determines the target server. If absent, the proxy uses the original Host header. When redirecting to a different host, ensure the Host header is updated accordingly.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

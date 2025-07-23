@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 28 Mar 2025 08:32:30 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/chmod/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>2025 03 29 Execute Dir permissions in Linux</title>
+      <title>Understanding Execute Permissions in Linux</title>
       <link>http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/</link>
       <pubDate>Fri, 28 Mar 2025 08:32:30 -0300</pubDate>
       <guid>http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/</guid>
-      <description>&lt;h2 id=&#34;beware-of-chmod--r-when-adjusting-execute-bits&#34;&gt;Beware of chmod -R When Adjusting Execute Bits&lt;/h2&gt;&#xA;&lt;p&gt;When adjusting execute permissions, using &lt;code&gt;chmod -R&lt;/code&gt; can be risky. This command does not differentiate between files and directories, which can lead to unintended consequences. The execute bit has different meanings for files and directories, and using &lt;code&gt;chmod -R a-x&lt;/code&gt; might not achieve the desired outcome. Instead, use the &lt;code&gt;find&lt;/code&gt; command to selectively modify permissions for regular files only:&#xA;the execute bit has a different interpretation on a directory than it does on a flat&#xA;file. Therefore, chmod -R a-x probably won’t do what you intend. Use find to select&#xA;only the regular files:&#xA;$ find mydir -type f -exec chmod a-x {} &amp;lsquo;;&amp;rsquo;&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;the-execute-bit-different-meanings-for-files-and-directories&#34;&gt;The Execute Bit: Different Meanings for Files and Directories&lt;/h2&gt;&#xA;&lt;p&gt;In Linux, the execute permission (x) has different meanings depending on whether it&amp;rsquo;s applied to a file or a directory:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;For files: The execute bit allows the file to be run as a program or script&lt;/li&gt;&#xA;&lt;li&gt;For directories: The execute bit allows you to enter the directory (cd into it) and list its contents&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-danger-of-chmod--r&#34;&gt;The Danger of &lt;code&gt;chmod -R&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Using &lt;code&gt;chmod -R&lt;/code&gt; (recursive mode) to modify execute permissions can be risky because it treats both files and directories the same way. For example:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

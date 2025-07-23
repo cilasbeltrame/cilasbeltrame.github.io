@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terraform on Cilas Beltrame</title>
+    <link>http://localhost:1313/tags/terraform/</link>
+    <description>Recent content in Terraform on Cilas Beltrame</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 23 Jul 2025 09:37:35 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2025 07 23 Terraform Provider Versioning</title>
+      <link>http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/</link>
+      <pubDate>Wed, 23 Jul 2025 09:37:35 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -6,14 +6,35 @@
     <description>Recent content in Posts on Cilas Beltrame</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 06 Apr 2025 16:33:33 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jul 2025 09:37:35 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>2025 07 23 Terraform Provider Versioning</title>
+      <link>http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/</link>
+      <pubDate>Wed, 23 Jul 2025 09:37:35 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The Host header: Details you should know when proxying requests</title>
+      <link>http://localhost:1313/post/2025-04-26-reverse-proxy/2025-04-26-reverse-proxy/</link>
+      <pubDate>Sat, 26 Apr 2025 06:26:39 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-04-26-reverse-proxy/2025-04-26-reverse-proxy/</guid>
+      <description>&lt;p&gt;When proxying requests, it&amp;rsquo;s crucial to understand the role of the Host header. This header specifies the target server for a request and can be altered by users to access different resources.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-host-header&#34;&gt;The Host Header&lt;/h2&gt;&#xA;&lt;p&gt;The Host header in a request indicates the intended server. For example:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host: example.com&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GET /v1/users&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-host-header-in-reverse-proxies&#34;&gt;The Host Header in Reverse Proxies&lt;/h2&gt;&#xA;&lt;p&gt;In reverse proxies, the Host header determines the target server. If absent, the proxy uses the original Host header. When redirecting to a different host, ensure the Host header is updated accordingly.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>GitOps Best Practices: Balancing Autonomy and Stability</title>
-      <link>http://localhost:1313/post/2025-04-06-argo-cd-segregration/2025-04-06-argo-cd-segregration/</link>
+      <link>http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/</link>
       <pubDate>Sun, 06 Apr 2025 16:33:33 -0300</pubDate>
-      <guid>http://localhost:1313/post/2025-04-06-argo-cd-segregration/2025-04-06-argo-cd-segregration/</guid>
-      <description>&lt;h1 id=&#34;gitops-best-practices-balancing-autonomy-and-stability&#34;&gt;GitOps Best Practices: Balancing Autonomy and Stability&lt;/h1&gt;&#xA;&lt;p&gt;In modern cloud-native environments, implementing GitOps principles effectively requires finding the right balance between team autonomy and system stability. This article explores key patterns and practices that can be applied across different GitOps tools (like ArgoCD, Flux, or Helm) to achieve this balance while maintaining system integrity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-core-challenge&#34;&gt;The Core Challenge&lt;/h2&gt;&#xA;&lt;p&gt;When implementing GitOps, organizations often face several fundamental challenges:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Security and Stability&lt;/strong&gt;: Critical infrastructure components require careful management and protection&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Team Autonomy&lt;/strong&gt;: Development teams need the ability to make changes without bottlenecks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;System Reliability&lt;/strong&gt;: Core services must remain stable and protected from accidental changes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Operational Efficiency&lt;/strong&gt;: Teams should work independently while maintaining system integrity&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;repository-structure-and-access-control&#34;&gt;Repository Structure and Access Control&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-infrastructure-repository&#34;&gt;1. Infrastructure Repository&lt;/h3&gt;&#xA;&lt;p&gt;This repository contains critical infrastructure components that should be managed by the DevOps/SRE team:&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2025-04-06-gitops-best-practices/2025-04-06-gitops-best-practices/</guid>
+      <description>&lt;p&gt;In modern cloud-native environments, implementing GitOps principles effectively requires finding the right balance between team autonomy and system stability. This article explores key patterns and practices that can be applied across different GitOps tools (like ArgoCD, Flux, or Helm) to achieve this balance while maintaining system integrity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-core-challenge&#34;&gt;The Core Challenge&lt;/h2&gt;&#xA;&lt;p&gt;When implementing GitOps, organizations often face several fundamental challenges:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Security and Stability&lt;/strong&gt;: Critical infrastructure components require careful management and protection&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Team Autonomy&lt;/strong&gt;: Development teams need the ability to make changes without bottlenecks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;System Reliability&lt;/strong&gt;: Core services must remain stable and protected from accidental changes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Operational Efficiency&lt;/strong&gt;: Teams should work independently while maintaining system integrity&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;repository-structure-and-access-control&#34;&gt;Repository Structure and Access Control&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-infrastructure-repository&#34;&gt;1. Infrastructure Repository&lt;/h3&gt;&#xA;&lt;p&gt;This repository contains critical infrastructure components that should be managed by the DevOps/SRE team:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Execute Permissions in Linux</title>
+      <link>http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/</link>
+      <pubDate>Fri, 28 Mar 2025 08:32:30 -0300</pubDate>
+      <guid>http://localhost:1313/post/2025-03-29-execute-dir/2025-03-29-execute-dir/</guid>
+      <description>&lt;h2 id=&#34;the-execute-bit-different-meanings-for-files-and-directories&#34;&gt;The Execute Bit: Different Meanings for Files and Directories&lt;/h2&gt;&#xA;&lt;p&gt;In Linux, the execute permission (x) has different meanings depending on whether it&amp;rsquo;s applied to a file or a directory:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;For files: The execute bit allows the file to be run as a program or script&lt;/li&gt;&#xA;&lt;li&gt;For directories: The execute bit allows you to enter the directory (cd into it) and list its contents&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-danger-of-chmod--r&#34;&gt;The Danger of &lt;code&gt;chmod -R&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Using &lt;code&gt;chmod -R&lt;/code&gt; (recursive mode) to modify execute permissions can be risky because it treats both files and directories the same way. For example:&lt;/p&gt;</description>
     </item>
     <item>
       <title>What really happens when you redirect to /dev/null?</title>
