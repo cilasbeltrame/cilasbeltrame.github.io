@@ -9,11 +9,11 @@
     <lastBuildDate>Wed, 23 Jul 2025 09:37:35 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>2025 07 23 Terraform Provider Versioning</title>
+      <title>Terraform Provider Versioning</title>
       <link>http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/</link>
       <pubDate>Wed, 23 Jul 2025 09:37:35 -0300</pubDate>
       <guid>http://localhost:1313/post/2025-07-23-terraform-provider-versioning/2025-07-23-terraform-provider-versioning/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Provider versioning in Terraform is a critical aspect of infrastructure management that often gets overlooked until something breaks. The question isn&amp;rsquo;t whether to pin provider versions, but &lt;strong&gt;where&lt;/strong&gt; and &lt;strong&gt;how&lt;/strong&gt; to pin them effectively. This article explores the two main approaches: pinning at the composition level versus pinning at base/root modules, and provides guidance on when to use each strategy.&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-provider-versioning-strategies&#34;&gt;Understanding provider versioning strategies&lt;/h2&gt;&#xA;&lt;h3 id=&#34;baseroot-module-pinning&#34;&gt;Base/root module pinning&lt;/h3&gt;&#xA;&lt;p&gt;In this approach, you specify provider version constraints directly in your base modules or root configurations:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
